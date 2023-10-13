@@ -2,11 +2,11 @@
 
 const axios = require("axios");
 const bcrypt = require("bcrypt");
+const bcryptPassword = process.env['bcrypt_password']
 
 
 let dummyDatabase = [];
 const hashSetings = {
-  password: "4C0m0d4m13nt0.",
   saltRounds: 12,
 }
 
