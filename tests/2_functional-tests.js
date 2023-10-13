@@ -51,35 +51,12 @@ suite('Functional Tests', function() {
 
     test("Viewing two stocks: GET request to /api/stock-prices/", async function (done) {
       
-      /*let apiResponse = await axios.get(`${apiUrl}/api/stock-prices?stock=GOOG&stock=MSFT`)
+      let apiResponse = await axios.get(`${apiUrl}/api/stock-prices?stock=GOOG&stock=MSFT`)
           .then(response => response.data);
 
       const stockData = apiResponse.stockData;
-
-      assert.isArray(stockData);*/
+      assert.isArray(stockData);
       
-      /*chai
-      .request(server)
-      .get("/api/stock-prices?stock=GOOG&stock=MSFT")
-      .end(function(err, res) {
-
-        assert.equal(res.status, 200);
-        assert.equal(res.body.stockData.stock, "GOOG");
-        assert.isNumber(res.body.stockData.price);
-        assert.isNumber(res.body.stockData.likes);
-      });*/
-
-      await axios
-        .get(`${apiUrl}/api/stock-prices?stock=GOOG&stock=MSFT`)
-        .then(response => {
-          const stockData = response.data.stockData;
-          assert.isArray(stockData);
-        });
-
-      //const stockData = apiResponse.stockData;
-
-      //assert.isArray(stockData);
-
       done();
     });
 
