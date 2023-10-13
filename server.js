@@ -14,6 +14,24 @@ app.use('/public', express.static(process.cwd() + '/public'));
 
 app.use(cors({origin: '*'})); //For FCC testing purposes only
 
+app.use(helmet({
+  frameguard: {
+    action: "deny"
+  },
+  contentSecurityPolicy: {
+    directives: {
+      scriptSrc: [
+        "'self'",
+        "https://boilerplate-project-stockchecker.juanconj.repl.co",
+      ],
+      styleSrc: [
+        "'self'",
+        "https://boilerplate-project-stockchecker.juanconj.repl.co",
+      ],
+    },
+  },
+}));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
