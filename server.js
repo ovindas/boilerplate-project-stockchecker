@@ -8,6 +8,7 @@ const helmet      = require('helmet');
 const apiRoutes         = require('./routes/api.js');
 const fccTestingRoutes  = require('./routes/fcctesting.js');
 const runner            = require('./test-runner');
+const apiUrl            = process.env['dev_env'];
 
 const app = express();
 
@@ -23,11 +24,11 @@ app.use(helmet({
     directives: {
       scriptSrc: [
         "'self'",
-        "https://boilerplate-project-stockchecker.juanconj.repl.co",
+        `${apiUrl}`,
       ],
       styleSrc: [
         "'self'",
-        "https://boilerplate-project-stockchecker.juanconj.repl.co",
+        `${apiUrl}`,
       ],
     },
   },
